@@ -5,6 +5,8 @@ from airflow.operators.python_operator import PythonOperator
 import time
 import logging
 
+logger = logging.getLogger(__name__)
+
 def print_hello():
 	logger.info('Hello Airflow!')
 
@@ -20,7 +22,7 @@ default_args = {
 }
 
 dag = DAG(
-    'DAG-2',
+    'DAG-3',
     default_args=default_args,
     description='A simple Airflow DAG',
     schedule_interval=timedelta(seconds=5),
