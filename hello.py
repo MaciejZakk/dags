@@ -20,13 +20,13 @@ default_args = {
 }
 
 dag = DAG(
-    'DAG-1',
+    'DAG-2',
     default_args=default_args,
     description='A simple Airflow DAG',
     schedule_interval=timedelta(seconds=5),
 )
 
-start = DummyOperator(task_id='start', dag=dag)
+#start = DummyOperator(task_id='start', dag=dag)
 
 hello_operator = PythonOperator(
     task_id='hello_task',
@@ -34,6 +34,6 @@ hello_operator = PythonOperator(
     dag=dag,
 )
 
-end = DummyOperator(task_id='end', dag=dag)
+#end = DummyOperator(task_id='end', dag=dag)
 
-start >> hello_operator >> end
+hello_operator
